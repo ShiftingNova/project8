@@ -9,7 +9,7 @@ def get_file_contents(filename):
         lines = file.readlines()
         for line in lines:
             one_line = line.split('\n')
-            results = results + " " + one_line[0]
+            results = results + "\n" + one_line[0]
         return results
     except:
         return None
@@ -17,6 +17,7 @@ def get_votes(string):
     '''
     This function takes in a string argument called 'string; and turns it into a list while
     splitting at any instance at "\n"and adding those values to a list called "results"
+    Then returns results
     '''
     results = []
     list = string.split('\n')
@@ -65,8 +66,8 @@ def pairwise(votes):
     for vote in votes:
         for index in range(len(vote)-1):
             for endex in range(len(vote)-1):
-                if vote[index] != vote[endex+1]:
-                    pair = (vote[index],vote[endex+1])
+                if index <= endex:
+                    pair = (vote[index], vote[endex+1])
                     if pair not in results:
                         results[pair] = 0
                     results[pair] = results[pair] + 1
@@ -78,7 +79,8 @@ def condorcet_winner(votes):
     This function records the winner in a string variable called 'result'
     This function then returns 'result'
     '''
-    result = ""
+    result_string = ""
+    result = []
     results = []
     parings = pairwise(votes)
     points = {}
@@ -86,6 +88,8 @@ def condorcet_winner(votes):
     for key in parings:
         pair2 = key[1],key[0]
         for key2 in parings:
+            if len(parings) < 2:
+                results.append(key)
             if key2 == pair2:
                 if parings[key] > parings[key2]:
                     results.append(key)
@@ -97,12 +101,13 @@ def condorcet_winner(votes):
     for key in points:
         if points[key] > largest:
             largest = points[key]
-            result = key
-        if points[key] == largest and result != key:
-            result = result + key
+            result.append(key)
+        if points[key] == largest and result[0] != key:
+            result.append(key)
     if len(result) > 1:
         return None
-    return result
+    result_string = result[0]
+    return result_string
 def winners(scores):
     '''
     this function takes in a dictionary argument called 'scores' and sees which key has the highest value.
