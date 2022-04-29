@@ -1,6 +1,6 @@
 def get_file_contents(filename):
     '''
-    This function takes in a filename then calls that function and reads the file and puts the values in a string called
+    This function takes in a argument called  filename then calls that function and reads the file and puts the values in a string called
     "results" and then returns the results
     '''
     results = ""
@@ -15,7 +15,7 @@ def get_file_contents(filename):
         return None
 def get_votes(string):
     '''
-    This function takes in a string variable called 'string; and turns it into a list while
+    This function takes in a string argument called 'string; and turns it into a list while
     splitting at any instance at "\n"and adding those values to a list called "results"
     '''
     results = []
@@ -26,7 +26,7 @@ def get_votes(string):
     return results
 def borda_scores(votes):
     '''
-    This function takes in a list of lists called 'votes' and gives creates a dictionary called 'results'
+    This function takes in a list of lists argument called 'votes' and gives creates a dictionary called 'results'
     and adds values to the keys based on the number of times a candidate was voted for and how early in the list
     they appeared.
     and return the dictionary 'results'
@@ -43,7 +43,7 @@ def borda_scores(votes):
     return results
 def plurality(votes):
     '''
-    This function takes in a list of lists called 'votes'
+    This function takes in a list of lists argument called 'votes'
     and sees how many times the first value in the list is the first value among all of the lists.
     It records these results in a dictionary called 'results'
     then it returns 'results'
@@ -56,7 +56,7 @@ def plurality(votes):
     return results
 def pairwise(votes):
     '''
-    This function takes in a list of lists called 'votes' and compares each time a
+    This function takes in a list of lists argument called 'votes' and compares each time a
     candidate was voted for over another candidate it records these results in a dictionary called 'results'
     then this function returns the dictionary 'results'
     '''
@@ -73,7 +73,7 @@ def pairwise(votes):
     return results
 def condorcet_winner(votes):
     '''
-    This function takes in a list of lists called 'votes' and sees how many times each candidate beat the other candidates.
+    This function takes in a list of lists argument called 'votes' and sees how many times each candidate beat the other candidates.
     the candidate that beat the other candidates the most is the winner.
     This function records the winner in a string variable called 'result'
     This function then returns 'result'
@@ -105,7 +105,7 @@ def condorcet_winner(votes):
     return result
 def winners(scores):
     '''
-    this function takes in a dictionary called 'scores' and sees which key has the highest value.
+    this function takes in a dictionary argument called 'scores' and sees which key has the highest value.
     then puts this key in a list called "results" if multiple values have the same highest value
      it adds them all to the list.
      then returns the list called "results"
