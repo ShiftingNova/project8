@@ -9,7 +9,7 @@ def get_file_contents(filename):
         lines = file.readlines()
         for line in lines:
             one_line = line.split('\n')
-            results = results + "\n" + one_line[0]
+            results = results + one_line[0] + "\n"
         return results
     except:
         return None
@@ -104,7 +104,7 @@ def condorcet_winner(votes):
             result.append(key)
         if points[key] == largest and result[0] != key:
             result.append(key)
-    if len(result) > 1:
+    if len(result) > 1 or len(result) == 0:
         return None
     result_string = result[0]
     return result_string
